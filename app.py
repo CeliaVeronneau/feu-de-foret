@@ -155,8 +155,24 @@ if uploaded_file is not None:
     # ── Disclaimer en bas ──
     st.markdown("---")
     st.warning(
-        "Systeme d'aide a la detection — toute alerte doit etre confirmee par un operateur humain avant mobilisation."
+        "ALERTE : ce systeme est une aide a la detection. Toute prediction doit etre confirmee par un operateur humain avant mobilisation."
     )
 
 else:
     st.info("Uploadez une image pour commencer l'analyse.")
+
+with st.expander("Comment ca marche ?"):
+    st.markdown(
+        """
+        Cette application utilise un modele EfficientNet-B0 entraine pour distinguer deux classes :
+        **fire** et **no_fire**.
+
+        1. L'image uploadée est redimensionnée en 224x224 pixels.
+        2. Le modele calcule une probabilité pour chaque classe.
+        3. La classe avec la probabilité la plus élevée est affichée comme prédiction.
+        4. GradCAM met en évidence les zones de l'image qui ont le plus influencé la décision.
+
+        Important : ce système peut se tromper, notamment avec des couchers de soleil,
+        de la brume, de la fumée ambiguë ou des lumières chaudes.
+        """
+    )
