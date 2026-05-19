@@ -2,7 +2,7 @@
 # TODO : recopier le code precedent et completer la logique de prediction
 # Pensez a charger le modele avec @st.cache_resource pour ne le charger qu'une fois
 
-%%writefile app.py
+
 import streamlit as st
 import torch
 import torch.nn as nn
