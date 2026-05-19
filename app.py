@@ -120,6 +120,7 @@ if uploaded_file is not None:
                 value=pred_class,
                 delta=f"{confidence:.1f}%"
             )
+            st.progress(int(confidence))
 
             st.markdown("**Probabilites :**")
             st.write(f"- fire : {probs[0].item() * 100:.1f}%")
@@ -154,7 +155,7 @@ if uploaded_file is not None:
 
     # ── Disclaimer en bas ──
     st.markdown("---")
-    st.warning(
+    st.error(
         "ALERTE : ce systeme est une aide a la detection. Toute prediction doit etre confirmee par un operateur humain avant mobilisation."
     )
 
